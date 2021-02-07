@@ -1,9 +1,9 @@
 document.getElementById('search-btn').addEventListener('click', function () {
     const getInput = document.getElementById('input-data').value;
-    getAllData(getInput);
+    getAllMenu(getInput);
 })
-
-const getAllData = name => {
+//get all the menu from api
+const getAllMenu = name => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
     fetch(url)
         .then(res => res.json())
@@ -19,6 +19,7 @@ const getAllData = name => {
         });
 }
 
+//get all matching menu
 const getFoodMenus = menus => {     
     const menusDiv = document.getElementById('all-menus');
     menus.forEach(menu => {
@@ -34,20 +35,20 @@ const getFoodMenus = menus => {
     })
 }
 
+//function for fetch the ingredients
 const displayIngredient = menu => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${menu}`)
         .then(res => res.json())
         .then(data => renderIngredient(data.meals[0]));
 }
 
+//function for rendering all the ingredients
 const renderIngredient = ingredient => {
     const menuDetailsDiv = document.getElementById('menu-details');
-    // const ingredientDiv = document.createElement('div'); //eta rakha jabe na
-    // ingredientDiv.className = 'ingredient'
     const ingredientsAll = `
         <img src = "${ingredient.strMealThumb}">
-        <h3>${ingredient.strMeal}</h3>
-        <h5>Ingredients:</h5>
+        <h2>${ingredient.strMeal}</h3>
+        <h4>Ingredients:</h5>
         <p>${ingredient.strIngredient1}</p>
         <p>${ingredient.strIngredient2}</p>
         <p>${ingredient.strIngredient3}</p>
@@ -60,6 +61,4 @@ const renderIngredient = ingredient => {
         <p>${ingredient.strIngredient10}</p>
     `;
     menuDetailsDiv.innerHTML = ingredientsAll;
-    // menuDetailsDiv.appendChild(ingredientDiv);
-
 }
