@@ -1,0 +1,20 @@
+#all-menus{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.menu img{
+    border-radius: 10px;
+    width: 250px;
+}
+.menu p{
+    text-align: center;
+}
+.ingredient{
+    align-items: center;
+}
+.ingredient img{
+    border-radius: 10px;
+    width: 200px;
+}
