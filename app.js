@@ -13,7 +13,7 @@ const getAllData = name => {
         .catch(error => {
             const showMessage = document.getElementById('error-msg');
             const message =`
-                ${name} menu is not available now
+                ${name} is not available now
             `;
             showMessage.innerText = message;
         });
