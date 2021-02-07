@@ -7,16 +7,27 @@ const getAllData = name => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => getFoodMenus(data.meals))
+        .then(data => {
+            getFoodMenus(data.meals);
+        })
+        .catch(error => {
+            const showMessage = document.getElementById('error-msg');
+            const message =`
+                ${name} menu is not available now
+            `;
+            showMessage.innerText = message;
+        });
 }
-const getFoodMenus = menus => {       //work here
+
+const getFoodMenus = menus => {     
     const menusDiv = document.getElementById('all-menus');
     menus.forEach(menu => {
-        const menuDiv = document.createElement('div');
+        const menuDiv = document.createElement('div')
         menuDiv.className = 'menu';
         const menuInfo = `
-            <img onclick = "displayIngredient('${menu.strMeal}')" src = "${menu.strMealThumb}">
-            <p onclick = "displayIngredient('${menu.strMeal}')">${menu.strMeal}</p>
+            <div onclick = "displayIngredient('${menu.strMeal}')">
+            <img src = "${menu.strMealThumb}">
+            <p>${menu.strMeal}</p>
         `;
         menuDiv.innerHTML = menuInfo;
         menusDiv.appendChild(menuDiv);
@@ -31,23 +42,24 @@ const displayIngredient = menu => {
 
 const renderIngredient = ingredient => {
     const menuDetailsDiv = document.getElementById('menu-details');
-    const ingredientDiv = document.createElement('div');
-    ingredientDiv.className = 'ingredient'
-    // const menuName = `
-    //     <img src = "${ingredient.strMealThumb}">
-    //     <h3>${ingredient.strMeal}</h3>
-    // `;
+    // const ingredientDiv = document.createElement('div'); //eta rakha jabe na
+    // ingredientDiv.className = 'ingredient'
     const ingredientsAll = `
         <img src = "${ingredient.strMealThumb}">
         <h3>${ingredient.strMeal}</h3>
-        <p>1. ${ingredient.strIngredient1}</p>
-        <p>2. ${ingredient.strIngredient2}</p>
-        <p>3. ${ingredient.strIngredient3}</p>
-        <p>4. ${ingredient.strIngredient4}</p>
-        <p>5. ${ingredient.strIngredient5}</p>
-        <p>6. ${ingredient.strIngredient6}</p>
+        <h5>Ingredients:</h5>
+        <p>${ingredient.strIngredient1}</p>
+        <p>${ingredient.strIngredient2}</p>
+        <p>${ingredient.strIngredient3}</p>
+        <p>${ingredient.strIngredient4}</p>
+        <p>${ingredient.strIngredient5}</p>
+        <p>${ingredient.strIngredient6}</p>
+        <p>${ingredient.strIngredient7}</p>
+        <p>${ingredient.strIngredient8}</p>
+        <p>${ingredient.strIngredient9}</p>
+        <p>${ingredient.strIngredient10}</p>
     `;
-    ingredientDiv.innerHTML = ingredientsAll;
-    menuDetailsDiv.appendChild(ingredientDiv);
+    menuDetailsDiv.innerHTML = ingredientsAll;
+    // menuDetailsDiv.appendChild(ingredientDiv);
 
 }

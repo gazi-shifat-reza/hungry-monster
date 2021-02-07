@@ -1,9 +1,15 @@
+body{
+    background-color: #e27d60;
+}
 #all-menus{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
 }
-
+.input{
+    margin: 50px auto;
+    text-align: center;
+}
 .menu img{
     border-radius: 10px;
     width: 250px;
@@ -11,10 +17,19 @@
 .menu p{
     text-align: center;
 }
-.ingredient{
-    align-items: center;
+#menu-details{
+    margin: auto;
+    text-align: center;
 }
-.ingredient img{
+#menu-details img{
     border-radius: 10px;
-    width: 200px;
+    width: 300px;
+}
+#menu-details h5 p{
+    text-align: left;
+}
+#error-msg{
+    
+    font-size: 20px;
+    text-align: center;
 }
