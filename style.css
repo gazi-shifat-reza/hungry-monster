@@ -1,5 +1,5 @@
 body{
-    background-color: #e27d60;
+    background-color: #ffbf69;
 }
 #all-menus{
     display: grid;
@@ -10,12 +10,23 @@ body{
     margin: 50px auto;
     text-align: center;
 }
+.input button{
+    background-color: #773344;
+    color: white;
+    border-radius: 5px;
+}
+.input input{
+    width: 400px;
+}
+.menu{
+    background-color: #773344;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
 .menu img{
     border-radius: 10px;
     width: 250px;
-}
-.menu p{
-    text-align: center;
 }
 #menu-details{
     margin: auto;
