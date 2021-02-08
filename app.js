@@ -2,7 +2,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const getInput = document.getElementById('input-data').value;
     getAllMenu(getInput);
 })
-//get all the menu from api
+//Function for get all the menu from api
 const getAllMenu = name => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
     fetch(url)
@@ -62,4 +62,8 @@ const renderIngredient = ingredient => {
         <p>${ingredient.strIngredient10}</p>
     `;
     menuDetailsDiv.innerHTML = ingredientsAll;
+    document.getElementById('search-btn').addEventListener('click', function () {
+        menuDetailsDiv.innerHTML = '';
+    })
+
 }

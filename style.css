@@ -36,11 +36,7 @@ body{
     border-radius: 10px;
     width: 300px;
 }
-#menu-details h5 p{
-    text-align: left;
-}
-#error-msg{
-    
+#error-msg{ 
     font-size: 20px;
     text-align: center;
 }
