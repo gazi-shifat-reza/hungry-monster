@@ -19,9 +19,10 @@ const getAllMenu = name => {
         });
 }
 
-//get all matching menu
+//Function for all matching menu
 const getFoodMenus = menus => {     
     const menusDiv = document.getElementById('all-menus');
+    menusDiv.innerHTML = '';
     menus.forEach(menu => {
         const menuDiv = document.createElement('div')
         menuDiv.className = 'menu';
